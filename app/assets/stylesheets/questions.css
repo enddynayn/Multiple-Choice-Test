@@ -1,0 +1,258 @@
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: #0F6292;
+  border-bottom: 2px solid #255e77;
+  padding: 5px 25px;
+
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  display: block;
+}
+.header-noexhibit {
+  background-color: #0F6292;
+  border-bottom: 2px solid #255e77;
+  padding: 5px 25px;
+  height: 40px;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  display: block;
+}
+
+* html .header {
+
+  position: absolute;
+}
+
+#header-wrapper {
+  
+  padding-right: 50px;
+}
+
+.header-title {
+  color: #0F6292;
+  margin: 10px;
+  width: 90%;
+  font-weight: bold;
+  font-size: 16pt;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border-bottom: 1px dotted #0F6292;
+}
+
+.overview-tab {
+  width: 90%;
+}
+
+.overview-tab td {
+  padding: 0 15px 5px 0;
+}
+
+.overview-label {
+  font-size: .8em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+  display: inline;
+}
+
+.review-flag {
+  color: #FFE8A3;
+  padding: 5px;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.ratio {
+  display: inline;
+  color: #0F6292;
+  font-size: .8em;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline;
+}
+
+.score {
+  padding-top: 5px;
+  color: #0F6292;
+  font-weight: bold;
+  font-size: 1.7em;
+  font-style: italic;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  display: inline;
+}
+
+td.header-cell {
+  color: #fff;
+  padding: 5px;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+/*
+#timer {
+  font-size: 1.1em;
+  font-family: 'Courier New', Monaco, monospace;
+  display: inline;
+}
+*/
+.question img {
+  padding: 10px 30px;
+}
+
+.question_counter {
+  
+}
+
+table.choices {
+  margin-left: 30px;
+  width: 990px;
+}
+
+
+table.choices td {
+
+ padding-left:10px;
+ padding-right:10px;
+ padding-botton:10px;
+}
+
+
+td.choice {
+    padding-top:35px;
+  width: 10px;
+
+}
+td.choice-answer {
+    width: 10px;
+    padding-top:35px;
+  border-top: dotted 1px #0F6292;
+  border-bottom: dotted 1px #0F6292;
+  border-left: dotted 1px #0F6292;
+}
+td.choice-question {
+  padding-top:30px;
+}
+
+.choice-label {
+    width: 10px;
+  padding-top:25px;
+}
+
+
+
+td.radio-label-answer{
+    width: 10px;
+  padding-top:25px;
+  border-bottom: dotted 1px #0F6292;
+  border-top: dotted 1px #0F6292;
+  border-right: dotted 1px #0F6292;
+  }
+td.radio-label{
+  width: 10px;
+padding-top:25px;
+  
+  }
+.big-select {
+  margin: 10px;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.big-select select {
+  font-size: 12pt;
+}
+
+table.review-tab {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+table.review-tab th {
+  background-color: #eee;
+}
+
+table.review-tab th,table.review-tab td {
+  border: 1px solid #ccc;
+  padding: 4px;
+  font-size: .8em;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+}
+
+table.review-tab a {
+  text-decoration: none;
+  color: #295EFF;
+}
+
+table.review-tab a:HOVER {
+  text-decoration: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0F6292;
+  border-top: 2px solid #255e77;
+  padding: 5px;
+}
+
+* html .footer {
+  position: absolute;
+}
+
+.footer-btn {
+height:100%;
+  float:middle;
+  padding: 0 5px;
+    width:33%;
+  display: inline;
+}
+
+.info {
+  border: 1px dotted #B88A00;
+  padding: .5em;
+  text-align: center;
+  background: #FFF6BF;
+  color: #514721;
+  width: 90%;
+}
+
+.instructor-FAQ{
+    color: #fff;
+  padding: 5px;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+height:100%;
+float:left;
+  width:33%;
+color:red;
+}
+
+.instructor-buttons{
+    color: #fff;
+  padding: 5px;
+  font-family: Verdana, arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 10pt;
+height:100%;
+  float:right;
+  width:33%;
+   padding: 1em;
+
+
+}
+.footer-content{
+vertical-align:middle;
+}
