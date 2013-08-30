@@ -61,7 +61,8 @@
         <div class="footer-btn">
       <span style="cursor: pointer;" onclick="previous();"><img 
         alt="previous" border="0" hspace="0" vspace="0" 
-         /></span>
+         /><%= link_to 'previous', exam_question_path({"exam_id"=>"1",
+ "id"=>"1"}) %></span>
     </div>
     <div class="footer-btn">
       <span onclick="next();" style="cursor: pointer;"><img 
