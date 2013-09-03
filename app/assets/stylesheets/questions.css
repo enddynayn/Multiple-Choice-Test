@@ -1,7 +1,4 @@
 
-body {
-  margin: 0;
-}
 
 .header {
   background-color: #0F6292;
@@ -256,3 +253,13 @@ height:100%;
 .footer-content{
 vertical-align:middle;
 }
+
+
+#circle4 {
+width: 50px;
+height: 50px;
+background: orange;
+position: absolute;
+
+}
+
