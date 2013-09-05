@@ -6,7 +6,7 @@
 <img src=<%= @questions %> style='width:45%;' alt="some_text">
 
 <div ='choices'> 
-  <%= form_tag({controller: 'questions', action: 'update'}, method: 'put') do %>
+  <%= form_tag({controller: 'questions', action: 'update'}, method: 'put', id:'myform') do %>
   <input type="radio" name="choices" class="choices" value="<%= @answers.first.id %>">
           <img src=<%= @answers.first.choice_url %>   alt="some_text"><br/>
    
@@ -22,9 +22,7 @@
     <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.id %>">  
           <img src=<%= @answers.fifth.choice_url %>   alt="some_text">
 
-          <div id='next-btn'>
-           <input type='submit'  value='Next' >
-         </div>
+        
   <% end %>
 </div>
 </div> 

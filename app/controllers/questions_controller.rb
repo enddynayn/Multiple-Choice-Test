@@ -13,7 +13,16 @@ class QuestionsController < ApplicationController
   	if exam.user_answer.nil?
   		exam.user_answer = Array.new
     end
-    exam.user_answer[params[:id].to_i] = params[:choices]
-    # redirect_to exam_question_path(exam, (params[:id].to_i + 1))
+    exam.user_answer[params[:id].to_i - 1] = params[:choices]
+    exam.save
+    puts "$$"*100
+    puts params[:submit]
+    if params[:submit] =='Next'
+      direction_id = params[:id].to_i + 1
+    else
+      direction_id = params[:id].to_i - 1
+    end
+    redirect_to exam_question_path(exam, direction_id)
+
   end
 end
