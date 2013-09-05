@@ -99,3 +99,6 @@ question10 = TestBankQuestion.create(
   						AnswerChoice.new(choice_url:'https://s3-us-west-1.amazonaws.com/soaquestions/SOA+10A_E.png',		correct_choice: false)
   					]
 )
+
+Exam.create(test_bank_questions: [question1, question2, question3 
+  ])
