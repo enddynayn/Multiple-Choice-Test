@@ -9,12 +9,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
+  	@answer = Exam.find(params[:exam_id]).user_answer
+  	if @answer.nil?
+  		user_answer = Array.new
 
-  	@answer = Exam.find(params[:exam_id]).user_answers[params[:id].to_i]
+  	else
+  	@answer << [params[:id].to_i] 
   	
-  	
-  	puts @answer 
-
   end
-
 end
