@@ -10,6 +10,11 @@ class QuestionsController < ApplicationController
 
   def update
 
+  	@answer = Exam.find(params[:exam_id]).user_answers[params[:id].to_i]
+  	
+  	
+  	puts @answer 
+
   end
 
 end
