@@ -7,23 +7,24 @@
 
 <div ='choices'> 
   <%= form_tag({controller: 'questions', action: 'update'}, method: 'put') do %>
-  <input type="radio" name="choices" class="choices" value="<%= @answers.first.choice_url %>">
+  <input type="radio" name="choices" class="choices" value="<%= @answers.first.id %>">
           <img src=<%= @answers.first.choice_url %>   alt="some_text"><br/>
    
-    <input type="radio" name="choices" class="choices" value="<%= @answers.second.choice_url %>">
+    <input type="radio" name="choices" class="choices" value="<%= @answers.second.id %>">
           <img src=<%= @answers.second.choice_url %>    alt="some_text"> <br/>
   
-    <input type="radio" name="choices" class="choices" value="<%= @answers.third.choice_url %>">  
+    <input type="radio" name="choices" class="choices" value="<%= @answers.third.id %>">  
           <img src=<%= @answers.third.choice_url %>   alt="some_text"> <br/>
   
-    <input type="radio" name="choices" class="choices" value="@answers.fourth.choice_url %> ">
+    <input type="radio" name="choices" class="choices" value="<%= @answers.fourth.id %> ">
           <img src=<%= @answers.fourth.choice_url %>   alt="some_text"> <br/>
     
-    <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.choice_url %>">  
+    <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.id %>">  
           <img src=<%= @answers.fifth.choice_url %>   alt="some_text">
 
-
-           <input type='submit' value='Submit'  onclick="window.location='<%='/exams/"#{params[:exam_id]}"/questions/"#{params[:id].to_i + 1}"'%>;' >
+          <div id='next-btn'>
+           <input type='submit'  value='Next' >
+         </div>
   <% end %>
 </div>
 </div> 

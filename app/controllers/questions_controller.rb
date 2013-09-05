@@ -9,12 +9,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
-  	@answer = Exam.find(params[:exam_id]).user_answer
-  	if @answer.nil?
-  		user_answer = Array.new
-
-  	else
-  	@answer << [params[:id].to_i] 
-  	
+    exam = Exam.find(params[:exam_id])
+  	if exam.user_answer.nil?
+  		exam.user_answer = Array.new
+    end
+    exam.user_answer[params[:id].to_i] = params[:choices]
+    # redirect_to exam_question_path(exam, (params[:id].to_i + 1))
   end
 end
