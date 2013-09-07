@@ -2,7 +2,7 @@ class Exam
   include Mongoid::Document
 
   field :user_answer, type: Array
-  field :marked, type: Boolean
+  field :marked, type: Array
   field :timer, type: Array
 
 

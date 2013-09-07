@@ -1,0 +1,84 @@
+<header>
+  <div class="container">
+   
+    <nav>
+      <div id='question-number-timer'>
+      <p><span class="question_counter"><%=params[:id] %></span> CBT Exam 1 </p>
+      <div id='timer'>
+        Time Left: 00:00:00
+      </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<table cellspacing='0' style='margin-top: 100px' style='margin:auto'> <!-- cellspacing='0' is important, must stay -->
+
+	<!-- Table Header -->
+	<thead>
+		<tr>
+			<th>Questions</th>
+			<th>Marked</th>
+			<th>Complete</th>
+		</tr>
+	</thead>
+	<!-- Table Header -->
+
+	<!-- Table Body -->
+	<tbody>
+
+		<tr>
+			<td><a href="#yep-iit-doesnt-exist">Question 1</a></td>
+			<td></td>
+			<td>Yes</td>
+		</tr><!-- Table Row -->
+
+		<tr class="even">
+			<td><a href="#yep-iit-doesnt-exist">Question 2</a></td>
+			<td>Yes</td>
+			<td>Yes</td>
+		</tr><!-- Darker Table Row -->
+
+		<tr>
+			<td><a href="#yep-iit-doesnt-exist">Question 3</a></td>
+			<td></td>
+			<td>No</td>
+		</tr>
+
+		<tr class="even">
+			<td><a href="#yep-iit-doesnt-exist">Question 4</a></td>
+			<td></td>
+			<td>No</td>
+		</tr>
+
+		<tr>
+			<td><a href="#yep-iit-doesnt-exist">Question 5</a></td>
+			<td>yes</td>
+			<td>Yes</td>
+		</tr>
+
+		<tr class="even">
+			<td><a href="#yep-iit-doesnt-exist">Question 6</a></td>
+			<td></td>
+			<td>yes</td>
+		</tr>
+
+		<tr>
+			<td><a href="#yep-iit-doesnt-exist">Question 7</a></td>
+			<td></td>
+			<td>No</td>
+		</tr>
+
+
+	</tbody>
+	<!-- Table Body -->
+
+</table>
+
+
+
+<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review incomplete' form='mark-form' >
+<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review Marked' form='mark-form' >
+
+<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='End Exam' style='margin-left: 400px' form='mark-form' >

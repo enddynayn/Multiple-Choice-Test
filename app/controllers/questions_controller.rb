@@ -1,4 +1,11 @@
 class QuestionsController < ApplicationController
+  
+  def index
+
+    
+  end
+
+
   def show
 
   	# @questions = TestBankQuestion.all[(rand()*TestBankQuestion.all.length).floor].question_url
@@ -10,19 +17,30 @@ class QuestionsController < ApplicationController
 
   def update
     exam = Exam.find(params[:exam_id])
-  	if exam.user_answer.nil?
-  		exam.user_answer = Array.new
+  	
+    if exam.user_answer.nil?
+      exam.user_answer = Array.new
     end
     exam.user_answer[params[:id].to_i - 1] = params[:choices]
     exam.save
-    puts "$$"*100
-    puts params[:submit]
-    if params[:submit] =='Next'
+    
+    if params[:submit] == 'Next'
       direction_id = params[:id].to_i + 1
     else
       direction_id = params[:id].to_i - 1
     end
     redirect_to exam_question_path(exam, direction_id)
 
+  end
+
+
+  def mark
+      exam = Exam.find(params[:exam_id])
+    
+    if exam.marked.nil?
+      exam.marked = Array.new
+    end
+    exam.marked[params[:id].to_i - 1] = 
+    exam.save
   end
 end
