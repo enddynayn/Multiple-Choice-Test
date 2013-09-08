@@ -8,11 +8,11 @@
       <input class='direction-btn' id='back-btn' type='submit'  name='submit' value='Back' form='myform'>
       <input class='direction-btn' id='next-btn' type='submit' name='submit' value='Next' form='myform' >
 
-     <input class='direction-btn' id='mark-btn' onclick="change()" type='submit' name='submit' value='Mark'>
+     <input class='direction-btn nate'  id='mark-btn' type='submit' name='submit' value='Mark'>
 
-      <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review' form='mark-form' >
+      <input class='direction-btn' id='next-btn'  onclick="window.location= '<%=exam_questions_path(params[:exam_id]) %>';"  type='submit' name='submit' value='Review' form='mark-form' >
       
-      
+
      
 
 

@@ -1,7 +1,10 @@
 class QuestionsController < ApplicationController
   
   def index
-
+    exam = Exam.find(params[:exam_id])
+    @marked = exam.marked
+    puts "$"*100
+    puts @marked
     
   end
 
@@ -40,7 +43,21 @@ class QuestionsController < ApplicationController
     if exam.marked.nil?
       exam.marked = Array.new
     end
-    exam.marked[params[:id].to_i - 1] = 
+    exam.marked[params[:id].to_i - 1] = true
     exam.save
+
+    render text: "Successful"
+  end
+
+  def unmark
+      exam = Exam.find(params[:exam_id])
+    
+    if exam.marked.nil?
+      exam.marked = Array.new
+    end
+    exam.marked[params[:id].to_i - 1] = false
+    exam.save
+
+    render text: "Successful"
   end
 end

@@ -16,7 +16,7 @@
     <input type="radio" name="choices" class="choices" value="<%= @answers.third.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.third.id.to_s %>>  
           <img src=<%= @answers.third.choice_url %>   alt="some_text"> <br/>
   
-    <input type="radio" name="choices" class="choices" value="<%= @answers.fourth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fourth.id.to_s %>>  
+     <input type="radio" name="choices" class="choices" value="<%= @answers.fourth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fourth.id.to_s %>>  
           <img src=<%= @answers.fourth.choice_url %>   alt="some_text"> <br/>
     
     <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fifth.id.to_s %>>   
@@ -31,7 +31,72 @@
 
 
 
+<script type='text/javascript'>
 
+  $(document).ready(function() {
+  function toggleMark(val, idval) {
+      console.log(idval);
+      var $dirbtn = $('.nate');
+      
+      if ($dirbtn.val() != val) {
+        console.log("true");
+        $dirbtn.val(val);
+        $("#mark-btn").attr("id", idval);
+
+      }
+    }   
+    $('#mark-btn').click(function(){
+      $.ajax({
+        type: 'PUT',
+        url:'<%= mark_exam_question_path(params[:exam_id], params[:id])%>'
+      }).done(function(msg){
+          //Change text of button to unmark          
+          var self = 'unmark-btn';
+
+          toggleMark("Marked", self);
+          console.log("called with markbtn");
+          // $("#mark-btn").val("Marked");
+          // Change id to unmark
+        });
+
+
+
+    $("#unmark-btn").click(function(){
+      console.log("unmakr called");
+      $.ajax({
+        type: 'PUT',
+        url:'<%= unmark_exam_question_path(params[:exam_id], params[:id])%>'
+      }).done(function(msg){
+        console.log("unmark clicked");
+          var self = 'mark-btn';
+
+          //Change text of button to mark
+          // $("#unmark-btn").val("Mark");
+          toggleMark("Mark", self);
+         console.log("called with unmarkbtn");
+
+          // Change id to mark
+          
+          // $("#unmark-btn").attr("id","mark-btn");
+            
+        });
+      });
+  });
+   
+
+   });
+
+
+
+    // $("#mark-btn").on("ajax:success", function() {
+    //  'yay!';
+    // }).on("ajax:error", function() {
+    //  ':`(';
+    // });
+ 
+
+
+ </script>
 
 
 
