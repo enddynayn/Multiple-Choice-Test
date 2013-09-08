@@ -26,21 +26,58 @@
 	<!-- Table Header -->
 
 	<!-- Table Body -->
-	<tbody>
 
+	<tbody>	
+		<%i = 1 %>
+		<% while (i < @questions.length + 1) %>
+			<% if (i % 2) == 0 %>
 		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 1</a></td>
-			<td></td>
-			<td>Yes</td>
+			<td>
+				<%=link_to "Question #{i}", exam_question_path(params[:exam_id], i ) %>
+			</td>
+			<td> 
+				<%= @marked[i - 1] %>
+			</td>
+				<% if @questions[i-1]  %>
+				<td>
+					Yes
+				</td>
+				<% else %>
+					<td>
+						No
+					</td>
+				<% end %>
+
+			<% else %>
+		<tr class="even">
+			<td>
+				<%=link_to "Question #{i}", exam_question_path(params[:exam_id], i ) %>
+			</td>
+			<td>
+				<%= @marked[i - 1] %>
+			</td>
+			<% if @questions[i-1]  %>
+				<td>
+					Yes
+				</td>
+				<% else %>
+					<td>
+						No
+					</td>
+				<% end %>
+		</tr>
+			<%end %>
+			<% i += 1%>
+		<% end %>
+
+			
 		</tr><!-- Table Row -->
 
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 2</a></td>
-			<td>Yes</td>
-			<td>Yes</td>
-		</tr><!-- Darker Table Row -->
+		<p> dont forget to fix THE BUG</p>
+			
+		<!-- Darker Table Row -->
 
-		<tr>
+		<!-- tr>
 			<td><a href="#yep-iit-doesnt-exist">Question 3</a></td>
 			<td></td>
 			<td>No</td>
@@ -69,7 +106,7 @@
 			<td></td>
 			<td>No</td>
 		</tr>
-
+ -->
 
 	</tbody>
 	<!-- Table Body -->

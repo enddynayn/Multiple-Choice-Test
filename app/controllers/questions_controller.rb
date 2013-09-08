@@ -3,9 +3,14 @@ class QuestionsController < ApplicationController
   def index
     exam = Exam.find(params[:exam_id])
     @marked = exam.marked
-    puts "$"*100
-    puts @marked
     
+    puts @marked
+    @questions = Exam.find(params[:exam_id]).test_bank_question_ids
+    puts "$"*100
+      
+      puts @questions[1]
+      puts @questions[2]
+      puts @questions[0]
   end
 
 
@@ -43,7 +48,7 @@ class QuestionsController < ApplicationController
     if exam.marked.nil?
       exam.marked = Array.new
     end
-    exam.marked[params[:id].to_i - 1] = true
+    exam.marked[params[:id].to_i - 1] = 'Yes'
     exam.save
 
     render text: "Successful"
@@ -55,7 +60,7 @@ class QuestionsController < ApplicationController
     if exam.marked.nil?
       exam.marked = Array.new
     end
-    exam.marked[params[:id].to_i - 1] = false
+    exam.marked[params[:id].to_i - 1] = ''
     exam.save
 
     render text: "Successful"
