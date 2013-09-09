@@ -8,19 +8,19 @@
   <%= form_tag({controller: 'questions', action: 'update'}, method: 'put', id:'myform') do %>
 
   <input type="radio" name="choices" class="choices" value="<%= @answers.first.id %>"  <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.first.id.to_s %> >
-          <img src=<%= @answers.first.choice_url %>   alt="some_text"><br/>
+         A.   <img src=<%= @answers.first.choice_url %>   alt="some_text"><br/>
    
     <input type="radio" name="choices" class="choices" value="<%= @answers.second.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.second.id.to_s %>>
-          <img src=<%= @answers.second.choice_url %>    alt="some_text"> <br/>
+         B.   <img src=<%= @answers.second.choice_url %>    alt="some_text"> <br/>
   
     <input type="radio" name="choices" class="choices" value="<%= @answers.third.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.third.id.to_s %>>  
-          <img src=<%= @answers.third.choice_url %>   alt="some_text"> <br/>
+         C.   <img src=<%= @answers.third.choice_url %>   alt="some_text"> <br/>
   
      <input type="radio" name="choices" class="choices" value="<%= @answers.fourth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fourth.id.to_s %>>  
-          <img src=<%= @answers.fourth.choice_url %>   alt="some_text"> <br/>
+         D.   <img src=<%= @answers.fourth.choice_url %>   alt="some_text"> <br/>
     
     <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fifth.id.to_s %>>   
-          <img src=<%= @answers.fifth.choice_url %>   alt="some_text">
+         E.   <img src=<%= @answers.fifth.choice_url %>   alt="some_text">
    
   <% end %>
 </div>

@@ -29,62 +29,60 @@
 	<!-- Table Body -->
 	<tbody>
 
+		<%i = 1 %>
+		<% while (i < @questions.length + 1) %>
+			<% if (i % 2) == 0 %>
 		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 1</a></td>
-			<td></td>
-			<td></td>
-			<td>Yes</td>
+			<td>
+				<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
+			</td>
+			<td> 
+				<%= @marked[i - 1] %>
+			</td>
+				
+			<td>
+							
+				<% answer = Exam.find(params[:id]).user_answer %>
+				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
+			</td>
+
+			<td>
+			
+			</td>
+			
+			<% else %>
+		<tr class="even">
+			<td>
+				<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
+			</td>
+			<td>
+				<%= @marked[i - 1] %>
+			</td>
+			
+			<td>
+				
+					<%answer = Exam.find(params[:id]).user_answer %>
+				<img src=<%= Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).choice_url%> alt="some_text">
+				
+			</td>
+			<td>
+				
+			</td>
+					
+		</tr>
+			<%end %>
+			<% i += 1%>
+		<% end %>
+
+			
 		</tr><!-- Table Row -->
 
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 2</a></td>
-			<td></td>
-			<td>Yes</td>
-			<td>Yes</td>
-
-		</tr><!-- Darker Table Row -->
-
-		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 3</a></td>
-			<td></td>
-			<td></td>
-			<td>No</td>
-		</tr>
-
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 4</a></td>
-			<td></td>
-			<td></td>
-			<td>No</td>
-		</tr>
-
-		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 5</a></td>
-			<td></td>
-			<td>yes</td>
-			<td>Yes</td>
-		</tr>
-
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 6</a></td>
-			<td></td>
-			<td></td>
-			<td>yes</td>
-		</tr>
-
-		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 7</a></td>
-			<td></td>
-			<td></td>
-			<td>No</td>
-		</tr>
-
+		<p> dont forget to fix THE BUG</p>
 
 	</tbody>
 	<!-- Table Body -->
 
 </table>
-
 
 
 

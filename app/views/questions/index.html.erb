@@ -74,39 +74,6 @@
 		</tr><!-- Table Row -->
 
 		<p> dont forget to fix THE BUG</p>
-			
-		<!-- Darker Table Row -->
-
-		<!-- tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 3</a></td>
-			<td></td>
-			<td>No</td>
-		</tr>
-
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 4</a></td>
-			<td></td>
-			<td>No</td>
-		</tr>
-
-		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 5</a></td>
-			<td>yes</td>
-			<td>Yes</td>
-		</tr>
-
-		<tr class="even">
-			<td><a href="#yep-iit-doesnt-exist">Question 6</a></td>
-			<td></td>
-			<td>yes</td>
-		</tr>
-
-		<tr>
-			<td><a href="#yep-iit-doesnt-exist">Question 7</a></td>
-			<td></td>
-			<td>No</td>
-		</tr>
- -->
 
 	</tbody>
 	<!-- Table Body -->
@@ -118,4 +85,4 @@
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review incomplete' form='mark-form' >
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review Marked' form='mark-form' >
 
-<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='End Exam' style='margin-left: 400px' form='mark-form' >
+<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='End Exam' onclick="window.location= '<%=exam_path(params[:exam_id]) %>';"style='margin-left: 400px' form='mark-form' >
