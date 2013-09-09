@@ -1,4 +1,6 @@
 Project3::Application.routes.draw do
+  get "staticpages/home"
+  get "staticpages/about"
   get "questions/show"
   get "exams/new"
 
