@@ -43,7 +43,7 @@ ul {
 }
 
 
-.footer {
+.footer1 {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -53,7 +53,7 @@ ul {
   padding: 5px;
 }
 
-* html .footer {
+* html .footer1 {
   position: absolute;
 
 }

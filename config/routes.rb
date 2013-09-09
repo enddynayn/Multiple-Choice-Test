@@ -1,4 +1,5 @@
 Project3::Application.routes.draw do
+  get "users/new"
   get "staticpages/home"
   get "staticpages/about"
   get "questions/show"
@@ -6,6 +7,8 @@ Project3::Application.routes.draw do
 
   post "questions/mark" => 'questions#mark'
   post "questions/unmark" => 'questions#unmark'
+
+resources :users
 
 
 resources :exams do
