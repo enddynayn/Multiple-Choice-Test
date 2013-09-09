@@ -9,7 +9,8 @@ Project3::Application.routes.draw do
   post "questions/unmark" => 'questions#unmark'
 
 resources :users
-
+resources :sessions, only: [:new, :create, :destroy]
+root  'staticpages#home'
 
 resources :exams do
     resources :questions do
@@ -18,5 +19,9 @@ resources :exams do
     		put 'unmark'
     	end
     end
-  end
+end
+
+   match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 end
