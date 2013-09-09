@@ -22,6 +22,7 @@
 			<th>Marked</th>
 			<th>Your response</th>
 			<th>Corrent response</th>
+			<th>Correct/Incorrect</th>
 		</tr>
 	</thead>
 	<!-- Table Header -->
@@ -45,9 +46,23 @@
 				<% answer = Exam.find(params[:id]).user_answer %>
 				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
 			</td>
+			<td>
+				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
+						if choice.correct_choice == true %>
+							<img src=<%= choice.choice_url %> alt= 'some_text'>
+						<% end %>
+					<% end %>
+					
+			</td>
 
 			<td>
-			
+				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
+				
+				<p> Correct </p>
+				
+				<% else%>
+					<p> Wrong </p>
+					<%end %>
 			</td>
 			
 			<% else %>
@@ -66,7 +81,18 @@
 				
 			</td>
 			<td>
-				
+				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
+						if choice.correct_choice == true %>
+							<img src=<%= choice.choice_url %> alt= 'some_text'>
+					<% end %>
+					<% end %>
+			</td>
+			<td>
+				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
+				<p> Correct </p>
+				<% else%>
+					<p> Wrong </p>
+					<%end %>
 			</td>
 					
 		</tr>
@@ -87,4 +113,4 @@
 
 
 
-<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Exit Exam' style='margin-left: 400px' form='mark-form' >
+<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Exit Exam' onclick="window.location= '<%=exams_path %>';" style='margin-left: 400px' form='mark-form' >
