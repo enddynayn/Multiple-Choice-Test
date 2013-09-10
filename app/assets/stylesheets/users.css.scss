@@ -16,3 +16,34 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+
+
+.show {
+  background: whitesmoke;
+  width: 100%;
+  position: top;
+  
+}
+
+#banner {
+  background: #5499C3;
+  top:0;
+  height: 100px;
+  width: 1000px;
+ 
+}
+
+#profile_picture {
+  background-image: URL('http://bluloop.net/static/edd.jpeg');
+  background-size: cover;
+  border: 7px solid whitesmoke;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  border-radius: 100px;
+  margin-left: 100px;
+}
+
+

@@ -1,5 +1,18 @@
-<h1>
- <%= gravatar_for @user %>
-  <%= @user.name %>
 
- </h1>
+<%= render 'layouts/header' %>
+ <div class='show'>
+  <div id="banner">
+    <div class="profile_name">
+      <%= @user.name %>
+    </div>
+    <div class="profile_position">
+     
+    </div>
+ </div>
+  <div id="profile_picture">
+  	<%= gravatar_for @user %>
+    
+  </div>
+
+  
+</div>
