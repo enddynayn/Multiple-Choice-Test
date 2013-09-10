@@ -8,9 +8,7 @@ class QuestionsController < ApplicationController
     @questions = Exam.find(params[:exam_id]).test_bank_question_ids
     puts "$"*100
       
-      puts @questions[1]
-      puts @questions[2]
-      puts @questions[0]
+
   end
 
 
