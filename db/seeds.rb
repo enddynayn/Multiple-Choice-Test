@@ -100,5 +100,5 @@ question10 = TestBankQuestion.create(
   					]
 )
 
-Exam.create(test_bank_questions: [question1, question2, question3 
-  ])
+# Exam.create(test_bank_questions: [question1, question2, question3 
+#   ])

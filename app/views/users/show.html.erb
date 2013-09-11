@@ -9,12 +9,14 @@
       <h1> <%= @user.name %></h1>
   </div>
  <div class='show'>
-  <div id="banner">
-    <div class="profile_name">
-   
-    </div>
-  
- </div>
-  
-  
+ 	<div id="banner">
+ 		<div class="box-module-content">
+				
+			<div class="info-buttons">
+				<%= button_to 'Start', exams_path, class: "btn-primary btn-large no-dblclick" %>
+		
+				<%= link_to 'Review', exams_path, class: "btn-primary btn-large no-dblclick" %>
+			</div>
+		</div>
+	</div>
 </div>

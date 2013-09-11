@@ -1,0 +1,5 @@
+<% @exams.each do |exam| %>
+<ul>
+	<li><%= link_to 'Exam ', exam_path( exam.id) %><li>
+<ul>
+	<% end  %>

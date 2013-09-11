@@ -4,11 +4,34 @@
     <nav>
       <div id='question-number-timer'>
       <p>Question <span class="question_counter"><%=params[:id] %></span> of 30 </p>
+
       <div id='timer'>
-        Time Left: 00:00:00
+        Time Left: </br>
+        <span id="timer"></span>
       </div>
       </div>
     </nav>
   </div>
 </header>
 
+ <script type='text/javascript'>
+  var count=60 * 60 * 3;
+
+var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+
+function timer()
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     return;
+  }
+
+ document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+}
+  
+
+
+</script>

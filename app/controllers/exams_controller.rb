@@ -2,8 +2,17 @@ class ExamsController < ApplicationController
   def new
   end
 
+  def create
+    exam = current_user.exams.create!(test_bank_questions: TestBankQuestion.all.sample(5))
+    redirect_to exam_question_path(exam, '1')
+    puts '%%' * 100
+
+  end
+
   def index
-  	
+  	@exams = current_user.exams
+    puts "$$$" * 100  
+    puts @exam
   end
 
   def show

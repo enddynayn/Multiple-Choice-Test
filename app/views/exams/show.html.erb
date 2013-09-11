@@ -51,13 +51,10 @@
 						if choice.correct_choice == true %>
 							<img src=<%= choice.choice_url %> alt= 'some_text'>
 						<% end %>
-					<% end %>
-					
+					<% end %>				
 			</td>
-
 			<td>
 				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
-				
 				<p> Correct </p>
 				
 				<% else%>
@@ -75,8 +72,7 @@
 			</td>
 			
 			<td>
-				
-					<%answer = Exam.find(params[:id]).user_answer %>
+				<%answer = Exam.find(params[:id]).user_answer %>
 				<img src=<%= Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).choice_url%> alt="some_text">
 				
 			</td>
@@ -90,22 +86,18 @@
 			<td>
 				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
 				<p> Correct </p>
-				<% else%>
+					<% else %>
 					<p> Wrong </p>
-					<%end %>
+				  <% end %>
 			</td>
 					
 		</tr>
 			<%end %>
 			<% i += 1%>
-		<% end %>
-
-			
+		<% end %>	
 		</tr><!-- Table Row -->
 
-
 	</tbody>
-	<!-- Table Body -->
 
 </table>
 

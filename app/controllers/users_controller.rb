@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-  	@user = User.find("522e1a7fe0d1cdeebc00000a")
+  	@user = User.find(params[:id])
   end
   def show
-  	@user = User.find("522e1a7fe0d1cdeebc00000a")
+  	@user = User.find(params[:id])
   end
 
   def new
