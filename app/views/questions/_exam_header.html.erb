@@ -6,7 +6,7 @@
       <p>Question <span class="question_counter"><%=params[:id] %></span> of 30 </p>
 
       <div id='timer'>
-        Time Left: </br>
+        
         <span id="timer"></span>
       </div>
       </div>
@@ -15,7 +15,7 @@
 </header>
 
  <script type='text/javascript'>
-  var count= 60 * 60 * 3;
+  var count= <%= (@exam.finishedtime - Time.now).hours %>;
 
 var counter=setInterval(timer, 1000);
 
