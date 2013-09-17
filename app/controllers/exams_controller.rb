@@ -20,5 +20,6 @@ class ExamsController < ApplicationController
   	 exam = Exam.find(params[:id])
   	 @marked = exam.marked
   	 @useranswers = Exam.find(params[:id]).user_answer
+     @exam = (Time.now * 60*60*3  - Time.now)
   end
 end

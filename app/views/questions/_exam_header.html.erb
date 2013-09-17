@@ -15,16 +15,20 @@
 </header>
 
  <script type='text/javascript'>
-  var count= <%= (@exam.finishedtime - Time.now).hours %>;
+
+  
+  var count= <%= @exam - Time.now %>;
 
 var counter=setInterval(timer, 1000);
 
 function timer()
 {
+  console.log('called')
   count=count-1;
   
   if (count <= 0)
   {
+
      clearInterval(counter);
      return;
   }
@@ -32,7 +36,7 @@ function timer()
  var hours = Math.floor(count/3600)
       var minutes =  Math.floor(count/60) - (hours*60)
       var seconds = count - (minutes * 60) - (hours*3600)
-      document.getElementById("timer").innerHTML= hours + ':' + minutes + ":" + seconds; // watch for spelling
+      document.getElementById("timer").innerHTML= hours + ':' + minutes + ":" + Math.floor(seconds); // watch for spelling
 }
 
 

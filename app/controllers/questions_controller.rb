@@ -6,20 +6,15 @@ class QuestionsController < ApplicationController
     
     puts @marked
     @questions = Exam.find(params[:exam_id]).test_bank_question_ids
-    @useranswers = Exam.find(params[:exam_id]).user_answer
-    puts "$"*100
-      
-
+    @useranswers = Exam.find(params[:exam_id]).user_answer  
   end
 
 
   def show
 
-  	# @questions = TestBankQuestion.all[(rand()*TestBankQuestion.all.length).floor].question_url
-  	#@answers = TestBankQuestion.first.answer_choices
     @questions = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].question_url
   	@answers = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].answer_choices
-
+     @exam = Exam.find(params[:exam_id]).timer
   	
   end
 

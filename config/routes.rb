@@ -1,5 +1,4 @@
 Project3::Application.routes.draw do
-  get "timers/shit"
   get "users/new"
   get "staticpages/home"
   get "staticpages/about"

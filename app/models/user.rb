@@ -22,7 +22,7 @@ has_secure_password
 
 
 #attr_accessible :email, :password, :password_confirmation
-def self.find_by_email(email)
+def User.find_by_email(email)
   where(:email => email).first
 end
 
