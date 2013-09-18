@@ -1,5 +1,6 @@
-<% @exams.each do |exam| %>
+
 <ul>
-	<li><%= link_to 'Exam ', exam_path( exam.id) %><li>
+	<% @exams.each do |exam| %>
+	<li><%= button_to 'Exam ', exam_path( exam.id), :method => "get" %><li>
+		<% end  %>
 <ul>
-	<% end  %>

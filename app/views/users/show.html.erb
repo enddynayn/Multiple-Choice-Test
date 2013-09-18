@@ -17,6 +17,11 @@
 		
 				<%= link_to 'Review', exams_path, class: "btn-primary btn-large no-dblclick" %>
 			</div>
+			<ul>
+	<% @exams.each do |exam| %>
+	<li><%= button_to 'Exam ', exam_path( exam.id), :method => "get" %><li>
+		<% end  %>
+<ul>
 		</div>
 	</div>
 </div>
