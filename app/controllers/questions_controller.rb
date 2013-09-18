@@ -16,10 +16,14 @@ class QuestionsController < ApplicationController
 
 
   def show
-
-    @questions = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].question_url
-  	@answers = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].answer_choices
-    @exam = Exam.find(params[:exam_id]).timer
+     @exam = Exam.find(params[:exam_id]).timer
+    if  params[:id].to_i.between?(1, 5)
+      @questions = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].question_url
+  	  @answers = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].answer_choices
+    else  
+       redirect_to exam_questions_path(params[:exam_id])
+    end
+   
   	
   end
 
