@@ -42,24 +42,33 @@
 			</td>
 				
 			<td>
-							
+			 			
 				<% answer = Exam.find(params[:id]).user_answer %>
+				<% if answer[i-1].empty? %>
+					<p>incomplete</p>
+				<%else %>
 				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
+				<%end%>
 			</td>
 			<td>
 				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
 						if choice.correct_choice == true %>
 							<img src=<%= choice.choice_url %> alt= 'some_text'>
+
 						<% end %>
 					<% end %>				
 			</td>
 			<td>
-				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
-				<p> Correct </p>
-				
-				<% else%>
+				<% if answer[i-1].empty?%>
 					<p> Wrong </p>
-					<%end %>
+					
+				<% elsif %>
+
+				<% Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
+					<p> Correct </p>
+				<%else %>
+					<p> Wrong </p>
+				<%end %>
 			</td>
 			
 			<% else %>
@@ -73,22 +82,33 @@
 			
 			<td>
 				<%answer = Exam.find(params[:id]).user_answer %>
-				<img src=<%= Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).choice_url%> alt="some_text">
+				<% if answer[i-1].empty? %>
+					<p>incomplete</p>
+				<%else %>
+				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
+				<%end%>
+				
 				
 			</td>
 			<td>
 				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
 						if choice.correct_choice == true %>
 							<img src=<%= choice.choice_url %> alt= 'some_text'>
+
 					<% end %>
 					<% end %>
 			</td>
-			<td>
-				<% if Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
-				<p> Correct </p>
-					<% else %>
+				<td>
+				<% if answer[i-1].empty? %>
 					<p> Wrong </p>
-				  <% end %>
+					
+				<% elsif %>
+
+				<% Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
+					<p> Correct </p>
+				<%else %>
+					<p> Wrong </p>
+				<%end %>
 			</td>
 					
 		</tr>

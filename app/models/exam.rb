@@ -2,6 +2,7 @@ class Exam
   include Mongoid::Document
   
   before_create :finished_time	
+  before_create :empty_array
 
   field :user_answer, type: Array, default: []
   field :marked, type: Array, default: []
@@ -13,6 +14,10 @@ class Exam
   def finished_time
   	self.timer = Time.now + 60 * 60 * 3
 
+  end
+
+  def empty_array
+    self.user_answer = Array.new(5,'')
   end
 end
 

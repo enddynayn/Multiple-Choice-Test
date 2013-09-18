@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     puts @marked
     @questions = Exam.find(params[:exam_id]).test_bank_question_ids
     @useranswers = Exam.find(params[:exam_id]).user_answer  
+     @exam = Exam.find(params[:exam_id]).timer
   end
 
 
@@ -14,7 +15,7 @@ class QuestionsController < ApplicationController
 
     @questions = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].question_url
   	@answers = Exam.find(params[:exam_id]).test_bank_questions[params[:id].to_i - 1].answer_choices
-     @exam = Exam.find(params[:exam_id]).timer
+    @exam = Exam.find(params[:exam_id]).timer
   	
   end
 
