@@ -6,7 +6,11 @@ class QuestionsController < ApplicationController
     
     puts @marked
     @questions = Exam.find(params[:exam_id]).test_bank_question_ids
-    @useranswers = Exam.find(params[:exam_id]).user_answer  
+    @user_answers = Exam.find(params[:exam_id]).user_answer  
+
+    puts_money
+    puts @user_answers
+    puts_money
      @exam = Exam.find(params[:exam_id]).timer
   end
 
@@ -25,11 +29,20 @@ class QuestionsController < ApplicationController
     if exam.user_answer.nil?
       exam.user_answer = Array.new
     end
-    exam.user_answer[params[:id].to_i - 1] = params[:choices]
-    exam.save
-    
+    if params[:choices].nil?
+       exam.user_answer[params[:id].to_i - 1] = ""
+       exam.save
+    else
+       exam.user_answer[params[:id].to_i - 1] = params[:choices]
+        exam.save
+    end
+    if params[:submit] == 'Review'
+      redirect_to exam_questions_path(params[:exam_id])
+      return
+    end
     if params[:submit] == 'Next'
       direction_id = params[:id].to_i + 1
+
     else
       direction_id = params[:id].to_i - 1
     end
