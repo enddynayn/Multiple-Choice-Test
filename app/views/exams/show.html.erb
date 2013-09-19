@@ -53,5 +53,5 @@
 	</tbody>
 </table>
 
-<%= button_to 'Exit Exam', exams_path, :method => "get", :id => 'next-btn', :class => 'direction-btn', :style =>'margin-left: 400px' %>
+<%= button_to 'Exit Exam', user_path(current_user.id), :method => "get", :id => 'next-btn', :class => 'direction-btn', :style =>'margin-left: 400px' %>
 
