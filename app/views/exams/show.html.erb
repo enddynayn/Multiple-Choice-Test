@@ -17,8 +17,7 @@
 	<tbody>
 		<% i = 1 %>
 		<% while (i < @questions.length + 1) %>
-			<% if (i % 2) == 0 %>
-				<tr>
+				<tr class="even">
 					<td>
 						<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
 					</td>
@@ -49,40 +48,6 @@
 						<% end %>
 					</td>
 				</tr>
-			<% else %>
-			<tr class="even">
-					<td>
-						<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
-					</td>
-					<td> 
-						<%= @marked[i - 1] %>
-					</td>		
-					<td>
-						<% if @user_answers[i-1].empty? %>
-								<p>incomplete</p>
-						<% else %>
-								<img src=<%= @test_bank_questions[i -1].answer_choices.find(@user_answers[i - 1]).choice_url%> alt="some_text">
-						<% end %>
-					</td>
-					<td>
-						<% @test_bank_questions[ i -1].answer_choices.each do |choice| %>
-							<% if choice.correct_choice == true %>
-								<img src=<%= choice.choice_url %> alt= 'some_text'>
-							<% end %>
-						<% end %>				
-					</td>
-					<td>
-						<% if @user_answers[i-1].empty?%>
-								<h5> Wrong </h5>	
-							<% elsif @test_bank_questions[i - 1].answer_choices.find(@user_answers[i -1]).correct_choice == true %>
-								<h5> Correct </h5>
-						<% else %>
-								<h5> Wrong </h5>
-						<% end %>
-					</td>
-			</tr>
-			<%end %>
-			
 			<% i += 1 %>
 		<% end %>	
 	</tbody>

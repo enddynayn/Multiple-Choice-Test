@@ -1,4 +1,4 @@
-<%= render 'exam_header' %>
+<%= render 'exam_header_timer' %>
 
 <div id='question'>
 <img src=<%= @questions %> style='width:45%;' alt="some_text">
@@ -70,14 +70,8 @@
         console.log("unmark clicked");
           var self = 'mark-btn';
 
-          //Change text of button to mark
-          // $("#unmark-btn").val("Mark");
           toggleMark("Mark", self);
          console.log("called with unmarkbtn");
-
-          // Change id to mark
-          
-          // $("#unmark-btn").attr("id","mark-btn");
             
         });
       });
@@ -85,15 +79,6 @@
    
 
    });
-
-
-
-    // $("#mark-btn").on("ajax:success", function() {
-    //  'yay!';
-    // }).on("ajax:error", function() {
-    //  ':`(';
-    // });
- 
 
 
  </script>

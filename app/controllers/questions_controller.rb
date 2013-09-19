@@ -4,14 +4,9 @@ class QuestionsController < ApplicationController
     exam = Exam.find(params[:exam_id])
     @marked = exam.marked
     
-    puts @marked
     @questions = Exam.find(params[:exam_id]).test_bank_question_ids
     @user_answers = Exam.find(params[:exam_id]).user_answer  
-
-    puts_money
-    puts @user_answers
-    puts_money
-     @exam = Exam.find(params[:exam_id]).timer
+    @exam = Exam.find(params[:exam_id]).timer
   end
 
 

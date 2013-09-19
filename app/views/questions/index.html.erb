@@ -1,20 +1,6 @@
-<header>
-  <div class="container">
-   
-    <nav>
-      <div id='question-number-timer'>
-      <p><span class="question_counter"><%=params[:id] %></span> CBT Exam 1 </p>
-      <div id='timer'>
-       
-      </div>
-      </div>
-    </nav>
-  </div>
-</header>
-
+<%= render 'exam_header_timer' %>
 
 <table cellspacing='0' style='margin-top: 100px' style='margin:auto'> <!-- cellspacing='0' is important, must stay -->
-
 	<!-- Table Header -->
 	<thead>
 		<tr>
@@ -23,14 +9,10 @@
 			<th>Complete</th>
 		</tr>
 	</thead>
-	<!-- Table Header -->
-
 	<!-- Table Body -->
-
 	<tbody>	
-		<%i = 1 %>
-		<% while (i < @questions.length + 1) %>
-			<% if (i % 2) == 0 %>
+	<%i = 1 %>
+	<% while (i < @questions.length + 1) %>
 		<tr>
 			<td>
 				<%=link_to "Question #{i}", exam_question_path(params[:exam_id], i ) %>
@@ -38,48 +20,20 @@
 			<td> 
 				<%= @marked[i - 1] %>
 			</td>
-				<% if @user_answers[i-1].empty?  %>
-				<td>
-					No
-				</td>
-				<% else %>
-					<td>
-						Yes
-					</td>
-				<% end %>
-
-			<% else %>
-		<tr class="even">
-			<td>
-				<%=link_to "Question #{i}", exam_question_path(params[:exam_id], i ) %>
-			</td>
-			<td>
-				<%= @marked[i - 1] %>
-			</td>
 			<% if @user_answers[i-1].empty?  %>
-				<td>
-					No
-				</td>
-				<% else %>
-					<td>
-						Yes
-					</td>
-				<% end %>
+			<td>
+				No
+			</td>
+			<% else %>
+			<td>
+				Yes
+			</td>
+			<% end %>
 		</tr>
-			<%end %>
 			<% i += 1%>
 		<% end %>
-
-			
-		</tr><!-- Table Row -->
-
-		
-
 	</tbody>
-	<!-- Table Body -->
-
 </table>
-
 
 
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review incomplete' form='mark-form' >
@@ -87,31 +41,3 @@
 
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='End Exam' onclick="window.location= '<%=exam_path(params[:exam_id]) %>';"style='margin-left: 400px' form='mark-form' >
 
-
- <script type='text/javascript'>
-
-  
-  var count= <%= @exam - Time.now %>;
-
-var counter=setInterval(timer, 1000);
-
-function timer()
-{
-  console.log('called')
-  count=count-1;
-  
-  if (count <= 0)
-  {
-
-     clearInterval(counter);
-     return;
-  }
-
- var hours = Math.floor(count/3600)
-      var minutes =  Math.floor(count/60) - (hours*60)
-      var seconds = count - (minutes * 60) - (hours*3600)
-      document.getElementById("timer").innerHTML= hours + ':' + minutes + ":" + Math.ceil(seconds); // watch for spelling
-}
-
-
-</script>
