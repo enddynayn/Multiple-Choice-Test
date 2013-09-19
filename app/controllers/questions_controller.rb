@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
     @exam = Exam.find(params[:exam_id]).timer
   end
 
-
   def show
      @exam = Exam.find(params[:exam_id]).timer
     if  params[:id].to_i.between?(1, 5)
