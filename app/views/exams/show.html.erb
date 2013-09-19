@@ -1,127 +1,92 @@
-
-
-<header>
-  <div class="container">
-   
-    <nav>
-      <div id='question-number-timer'>
-      <p>CBT Exam 1 </p>
-     
-      </div>
-    </nav>
-  </div>
-</header>
-
+<%= render 'complete_exam_header' %>
 
 <table cellspacing='0' style='margin-top: 100px' style='margin:auto'> <!-- cellspacing='0' is important, must stay -->
 
-	<!-- Table Header -->
-	<thead>
-		<tr>
-			<th>Questions</th>
-			<th>Marked</th>
-			<th>Your response</th>
-			<th>Corrent response</th>
-			<th>Correct/Incorrect</th>
-		</tr>
-	</thead>
-	<!-- Table Header -->
-
+<!-- Table Header -->
+<thead>
+	<tr>
+		<th>Questions</th>
+		<th>Marked</th>
+		<th>Your response</th>
+		<th>Corrent response</th>
+		<th>Correct/Incorrect</th>
+	</tr>
+</thead>
+	
 	<!-- Table Body -->
 	<tbody>
-
-		<%i = 1 %>
+		<% i = 1 %>
 		<% while (i < @questions.length + 1) %>
 			<% if (i % 2) == 0 %>
-		<tr>
-			<td>
-				<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
-			</td>
-			<td> 
-				<%= @marked[i - 1] %>
-			</td>
-				
-			<td>
-			 			
-				<% answer = Exam.find(params[:id]).user_answer %>
-				<% if answer[i-1].empty? %>
-					<p>incomplete</p>
-				<%else %>
-				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
-				<%end%>
-			</td>
-			<td>
-				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
-						if choice.correct_choice == true %>
-							<img src=<%= choice.choice_url %> alt= 'some_text'>
-
+				<tr>
+					<td>
+						<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
+					</td>
+					<td> 
+						<%= @marked[i - 1] %>
+					</td>		
+					<td>
+						<% if @user_answers[i-1].empty? %>
+							<p>incomplete</p>
+						<% else %>
+							<img src=<%= @test_bank_questions[i -1].answer_choices.find(@user_answers[i - 1]).choice_url%> alt="some_text">
 						<% end %>
-					<% end %>				
-			</td>
-			<td>
-				<% if answer[i-1].empty?%>
-					<p> Wrong </p>
-					
-				<% elsif %>
-
-				<% Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
-					<p> Correct </p>
-				<%else %>
-					<p> Wrong </p>
-				<%end %>
-			</td>
-			
+					</td>
+					<td>
+						<% @test_bank_questions[ i -1].answer_choices.each do |choice| %>
+							<% if choice.correct_choice == true %>
+								<img src=<%= choice.choice_url %> alt= 'some_text'>
+							<% end %>
+						<% end %>				
+					</td>
+					<td>
+						<% if @user_answers[i-1].empty?%>
+							<h5> Wrong </h5>	
+						<% elsif @test_bank_questions[i - 1].answer_choices.find(@user_answers[i -1]).correct_choice == true %>
+							<h5> Correct </h5>
+						<% else %>
+							<h5> Wrong </h5>
+						<% end %>
+					</td>
+				</tr>
 			<% else %>
-		<tr class="even">
-			<td>
-				<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
-			</td>
-			<td>
-				<%= @marked[i - 1] %>
-			</td>
-			
-			<td>
-				<%answer = Exam.find(params[:id]).user_answer %>
-				<% if answer[i-1].empty? %>
-					<p>incomplete</p>
-				<%else %>
-				<img src=<%= Exam.find(params[:id]).test_bank_questions[i -1].answer_choices.find(answer[i - 1]).choice_url%> alt="some_text">
-				<%end%>
-				
-				
-			</td>
-			<td>
-				<% Exam.find(params[:id]).test_bank_questions[ i -1].answer_choices.each do |choice| 
-						if choice.correct_choice == true %>
-							<img src=<%= choice.choice_url %> alt= 'some_text'>
-
-					<% end %>
-					<% end %>
-			</td>
-				<td>
-				<% if answer[i-1].empty? %>
-					<p> Wrong </p>
-					
-				<% elsif %>
-
-				<% Exam.find(params[:id]).test_bank_questions[i - 1].answer_choices.find(answer[i -1]).correct_choice == true %>
-					<p> Correct </p>
-				<%else %>
-					<p> Wrong </p>
-				<%end %>
-			</td>
-					
-		</tr>
+			<tr class="even">
+					<td>
+						<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
+					</td>
+					<td> 
+						<%= @marked[i - 1] %>
+					</td>		
+					<td>
+						<% if @user_answers[i-1].empty? %>
+								<p>incomplete</p>
+						<% else %>
+								<img src=<%= @test_bank_questions[i -1].answer_choices.find(@user_answers[i - 1]).choice_url%> alt="some_text">
+						<% end %>
+					</td>
+					<td>
+						<% @test_bank_questions[ i -1].answer_choices.each do |choice| %>
+							<% if choice.correct_choice == true %>
+								<img src=<%= choice.choice_url %> alt= 'some_text'>
+							<% end %>
+						<% end %>				
+					</td>
+					<td>
+						<% if @user_answers[i-1].empty?%>
+								<h5> Wrong </h5>	
+							<% elsif @test_bank_questions[i - 1].answer_choices.find(@user_answers[i -1]).correct_choice == true %>
+								<h5> Correct </h5>
+						<% else %>
+								<h5> Wrong </h5>
+						<% end %>
+					</td>
+			</tr>
 			<%end %>
-			<% i += 1%>
+			
+			<% i += 1 %>
 		<% end %>	
-		</tr><!-- Table Row -->
-
 	</tbody>
-
 </table>
 
+<%= button_to 'Exit Exam', exams_path, :method => "get", :id => 'next-btn', :class => 'direction-btn', :style =>'margin-left: 400px' %>
 
-
-
-<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Exit Exam' onclick="window.location= '<%=exams_path %>';" style='margin-left: 400px' form='mark-form' >
