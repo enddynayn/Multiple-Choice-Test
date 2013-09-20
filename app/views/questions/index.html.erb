@@ -39,5 +39,8 @@
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review incomplete' form='mark-form' >
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review Marked' form='mark-form' >
 
-<input class='direction-btn' id='next-btn'  type='submit' name='submit' value='End Exam' onclick="window.location= '<%=exam_path(params[:exam_id]) %>';"style='margin-left: 400px' form='mark-form' >
+
+<%= button_to 'End Exam', exam_path(params[:exam_id]) , :method => "get", :class =>'direction-btn', :id =>'next-btn', :style=> 'margin-left: 615px'  %>
+
+ 
 
