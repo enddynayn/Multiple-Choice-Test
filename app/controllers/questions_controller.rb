@@ -1,20 +1,23 @@
 class QuestionsController < ApplicationController
   
   def index
-    exam = Exam.find(params[:exam_id])
-    @marked = exam.marked
-    @questions = exam.test_bank_question_ids
-    @user_answers = exam.user_answer  
-    @start_time = exam.timer
+    current_exam = Exam.find(params[:exam_id])
+    @marked = current_exam.marked
+    @questions = current_exam.test_bank_question_ids
+    @user_answers = current_exam.user_answer  
+    @start_time = current_exam.timer
   end
 
   def show
-    exam = Exam.find(params[:exam_id])
-    @start_time = exam.timer
+    current_exam = Exam.find(params[:exam_id])
+    @start_time = current_exam.timer
+    @user_answer_choice = current_exam.user_answer[params[:id].to_i - 1]
     
     if  params[:id].to_i.between?(1, 5)
-      @exam_question = exam.test_bank_questions[params[:id].to_i - 1].question_url
-  	  @multiple_choices = exam.test_bank_questions[params[:id].to_i - 1].answer_choices
+      @exam_question_url = current_exam.test_bank_questions[params[:id].to_i - 1].question_url
+      @exam_question_choices_url = current_exam.test_bank_questions[params[:id].to_i - 1].answer_choices
+      # @exam_question_choices_id = @exam_question_choices_url[params[:id].to_i - 1].id.to_s 
+  	 
     else  
        redirect_to exam_questions_path(params[:exam_id])
     end

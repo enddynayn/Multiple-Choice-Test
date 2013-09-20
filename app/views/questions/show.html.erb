@@ -1,19 +1,27 @@
 <%= render 'exam_header_timer' %>
 
 <div id='question'>
-<img src=<%= @exam_question %> style='width:45%;' alt="some_text">
+<img src=<%= @exam_question_url %> style='width:45%;' alt="some_text">
 
 <div ='choices'> 
 
   <%= form_tag({controller: 'questions', action: 'update'}, method: 'put', id:'myform') do %>
+
+  <input type="radio" name="choices" class="choices" value="<%= @exam_question_choices_url.first.id %>"  <%= "checked='checked'" if @user_answer_choice == @exam_question_choices_url.first.id.to_s %> >
+         A.   <img src=<%= @exam_question_choices_url.first.choice_url %>   alt="some_text"><br/>
+   
+    <input type="radio" name="choices" class="choices" value="<%= @exam_question_choices_url.second.id %>" <%= "checked='checked'" if @user_answer_choice == @exam_question_choices_url.second.id.to_s %>>
+         B.   <img src=<%= @exam_question_choices_url.second.choice_url %>    alt="some_text"> <br/>
   
-  <% for i in 0..4  %>
-  <input type="radio" name="choices" class="choices" value="<%= @multiple_choices[i].id %>"  <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices[i].id.to_s %> >
-         A.   <img src=<%= @multiple_choices[i].choice_url %>   alt="some_text"><br/>
-   
+    <input type="radio" name="choices" class="choices" value="<%= @exam_question_choices_url.third.id %>" <%= "checked='checked'" if @user_answer_choice == @exam_question_choices_url.third.id.to_s %>>  
+         C.   <img src=<%= @exam_question_choices_url.third.choice_url %>   alt="some_text"> <br/>
+  
+     <input type="radio" name="choices" class="choices" value="<%= @exam_question_choices_url.fourth.id %>" <%= "checked='checked'" if @user_answer_choice == @exam_question_choices_url.fourth.id.to_s %>>  
+         D.   <img src=<%= @exam_question_choices_url.fourth.choice_url %>   alt="some_text"> <br/>
     
+    <input type="radio" name="choices" class="choices" value="<%= @exam_question_choices_url.fifth.id %>" <%= "checked='checked'" if @user_answer_choice == @exam_question_choices_url.fifth.id.to_s %>>   
+         E.   <img src=<%= @exam_question_choices_url.fifth.choice_url %>   alt="some_text">
    
-  <% end %>
   <% end %>
 </div>
 
