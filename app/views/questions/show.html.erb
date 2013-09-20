@@ -1,26 +1,26 @@
 <%= render 'exam_header_timer' %>
 
 <div id='question'>
-<img src=<%= @questions %> style='width:45%;' alt="some_text">
+<img src=<%= @exam_question %> style='width:45%;' alt="some_text">
 
 <div ='choices'> 
 
   <%= form_tag({controller: 'questions', action: 'update'}, method: 'put', id:'myform') do %>
 
-  <input type="radio" name="choices" class="choices" value="<%= @answers.first.id %>"  <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.first.id.to_s %> >
-         A.   <img src=<%= @answers.first.choice_url %>   alt="some_text"><br/>
+  <input type="radio" name="choices" class="choices" value="<%= @multiple_choices.first.id %>"  <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices.first.id.to_s %> >
+         A.   <img src=<%= @multiple_choices.first.choice_url %>   alt="some_text"><br/>
    
-    <input type="radio" name="choices" class="choices" value="<%= @answers.second.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.second.id.to_s %>>
-         B.   <img src=<%= @answers.second.choice_url %>    alt="some_text"> <br/>
+    <input type="radio" name="choices" class="choices" value="<%= @multiple_choices.second.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices.second.id.to_s %>>
+         B.   <img src=<%= @multiple_choices.second.choice_url %>    alt="some_text"> <br/>
   
-    <input type="radio" name="choices" class="choices" value="<%= @answers.third.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.third.id.to_s %>>  
-         C.   <img src=<%= @answers.third.choice_url %>   alt="some_text"> <br/>
+    <input type="radio" name="choices" class="choices" value="<%= @multiple_choices.third.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices.third.id.to_s %>>  
+         C.   <img src=<%= @multiple_choices.third.choice_url %>   alt="some_text"> <br/>
   
-     <input type="radio" name="choices" class="choices" value="<%= @answers.fourth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fourth.id.to_s %>>  
-         D.   <img src=<%= @answers.fourth.choice_url %>   alt="some_text"> <br/>
+     <input type="radio" name="choices" class="choices" value="<%= @multiple_choices.fourth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices.fourth.id.to_s %>>  
+         D.   <img src=<%= @multiple_choices.fourth.choice_url %>   alt="some_text"> <br/>
     
-    <input type="radio" name="choices" class="choices" value="<%= @answers.fifth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @answers.fifth.id.to_s %>>   
-         E.   <img src=<%= @answers.fifth.choice_url %>   alt="some_text">
+    <input type="radio" name="choices" class="choices" value="<%= @multiple_choices.fifth.id %>" <%= "checked='checked'" if Exam.find(params[:exam_id]).user_answer[params[:id].to_i - 1] == @multiple_choices.fifth.id.to_s %>>   
+         E.   <img src=<%= @multiple_choices.fifth.choice_url %>   alt="some_text">
    
   <% end %>
 </div>

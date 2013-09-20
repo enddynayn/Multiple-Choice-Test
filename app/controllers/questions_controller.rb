@@ -5,15 +5,16 @@ class QuestionsController < ApplicationController
     @marked = exam.marked
     @questions = exam.test_bank_question_ids
     @user_answers = exam.user_answer  
-    @exam = exam.timer
+    @start_time = exam.timer
   end
 
   def show
     exam = Exam.find(params[:exam_id])
-    @exam = Exam.find(params[:exam_id]).timer
+    @start_time = exam.timer
+    
     if  params[:id].to_i.between?(1, 5)
-      @questions = exam.test_bank_questions[params[:id].to_i - 1].question_url
-  	  @answers = exam.test_bank_questions[params[:id].to_i - 1].answer_choices
+      @exam_question = exam.test_bank_questions[params[:id].to_i - 1].question_url
+  	  @multiple_choices = exam.test_bank_questions[params[:id].to_i - 1].answer_choices
     else  
        redirect_to exam_questions_path(params[:exam_id])
     end
