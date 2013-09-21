@@ -56,7 +56,8 @@
           // toggleMark("Marked", self);
           // console.log("called with markbtn");
           $("#mark-btn").val("Marked");
-          // Change id to unmark
+          $("#mark-btn").attr("id",'unmark-btn' )
+          return false         // Change id to unmark
         });
 
 
@@ -72,13 +73,13 @@
 
           // toggleMark("Mark", self);
          console.log("called with unmarkbtn");
-         $("#mark-btn").val("Mark");
-            
+         $("#unmark-btn").val("Mark");
+         $("#unmark-btn").attr("id",'mark-btn' ); 
+            return false
         });
       });
   });
-   
-
+ 
    });
 
 
