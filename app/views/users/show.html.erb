@@ -1,25 +1,25 @@
 
 <%= render 'layouts/header' %>
 
-
-<div id="profile_picture">
+	<div id="profile_picture">
   	<%= gravatar_for @user %>
-      <h1> <%= @user.name %></h1>
-  </div>
- <div class='show'>
- 	<div id="banner">
- 		<div class="box-module-content">
-				
-			<div class="info-buttons">
-				<%= button_to 'Start', exams_path, class: "btn-primary btn-large no-dblclick" %>
+    <h1> <%= @user.name %></h1>
+  </div><br>
+ 	
+	<div class="box-module-content">
+		<%= button_to 'Start', exams_path, class: "btn-primary btn-large no-dblclick" %>
 		
-				<%= link_to 'Review', exams_path, class: "btn-primary btn-large no-dblclick" %>
-			</div>
-			<ul>
-	<% @exams.each do |exam| %>
-	<li><%= button_to 'Exam ', exam_path( exam.id), :method => "get" %><li>
-		<% end  %>
-<ul>
-		</div>
-	</div>
-</div>
+	</div><br><br><br><br>
+	
+	<ul>		
+		<% @exams.each do |exam| %>
+		<div id="banner">
+		<li>
+			<%= button_to 'Exam ', exam_path( exam.id), :method => "get", :id=>'banner' %>
+		<li>
+		</div><br><br>
+			<% end  %>
+	<ul>
+
+		
+	

@@ -4,7 +4,7 @@
       <input class='direction-btn' id='back-btn' type='submit'  name='submit' value='Back' form='myform'>
       <input class='direction-btn' id='next-btn' type='submit' name='submit' value='Next' form='myform' >
 
-     <input class='direction-btn nate'  id='mark-btn' type='submit' name='submit' <%= @marked[params[:id].to_i - 1] == 'Yes' ? "value=Marked"  : "value=Mark" %> >
+     <input class='direction-btn mark'  id='mark-btn' type='submit' name='submit' <%= @marked[params[:id].to_i - 1] == 'Yes' ? "value=Marked"  : "value=Mark" %> >
 
       <input class='direction-btn' id='next-btn'   type='submit' name='submit' value='Review' form='myform' >
         

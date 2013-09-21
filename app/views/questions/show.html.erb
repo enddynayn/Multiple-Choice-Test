@@ -29,35 +29,20 @@
 
 <%= render 'footer' %>
 
-
-
 <script type='text/javascript'>
 
   $(document).ready(function() {
-  // function toggleMark(val, idval) {
-  //     console.log(idval);
-  //     var $dirbtn = $('.nate');
-      
-  //     if ($dirbtn.val() != val) {
-  //       console.log("true");
-  //       $dirbtn.val(val);
-  //       $("#mark-btn").attr("id", idval);
 
-  //     }
       
     $('#mark-btn').click(function(){
       $.ajax({
         type: 'PUT',
         url:'<%= mark_exam_question_path(params[:exam_id], params[:id])%>'
       }).done(function(msg){
-          //Change text of button to unmark          
-          // var self = 'unmark-btn';
-
-          // toggleMark("Marked", self);
-          // console.log("called with markbtn");
+          
           $("#mark-btn").val("Marked");
           $("#mark-btn").attr("id",'unmark-btn' )
-          return false         // Change id to unmark
+          return false        
         });
 
 
@@ -68,17 +53,14 @@
         type: 'PUT',
         url:'<%= unmark_exam_question_path(params[:exam_id], params[:id])%>'
       }).done(function(msg){
-        console.log("unmark clicked");
-          // var self = 'mark-btn';
-
-          // toggleMark("Mark", self);
+        
          console.log("called with unmarkbtn");
          $("#unmark-btn").val("Mark");
          $("#unmark-btn").attr("id",'mark-btn' ); 
             return false
         });
       });
-  });
+   });
  
    });
 
