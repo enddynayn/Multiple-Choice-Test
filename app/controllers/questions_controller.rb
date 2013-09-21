@@ -3,6 +3,9 @@ class QuestionsController < ApplicationController
   def index
     current_exam = Exam.find(params[:exam_id])
     @marked = current_exam.marked
+    puts_money
+    puts @marked
+    puts_money
     @questions = current_exam.test_bank_question_ids
     @user_answers = current_exam.user_answer  
     @start_time = current_exam.timer
@@ -10,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def show
     current_exam = Exam.find(params[:exam_id])
+    @marked = current_exam.marked
     @start_time = current_exam.timer
     @user_answer_choice = current_exam.user_answer[params[:id].to_i - 1]
     
@@ -65,7 +69,7 @@ class QuestionsController < ApplicationController
     if exam.marked.nil?
       exam.marked = Array.new
     end
-    exam.marked[params[:id].to_i - 1] = ''
+    exam.marked[params[:id].to_i - 1] = 'No'
     exam.save
     render text: "Successful"
   end

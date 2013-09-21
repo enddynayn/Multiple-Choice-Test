@@ -3,7 +3,7 @@ class Exam
   
   before_create :finished_time	
   before_create :empty_array
-  
+  before_create :mark_array
 
   field :user_answer, type: Array, default: []
   field :marked, type: Array, default: []
@@ -20,6 +20,9 @@ class Exam
     self.user_answer = Array.new(5,'')
   end
 
+  def mark_array
+    self.marked = Array.new(5,'No')
+  end
   
 end
 

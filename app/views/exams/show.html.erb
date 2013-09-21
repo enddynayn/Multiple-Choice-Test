@@ -22,7 +22,7 @@
 						<%=link_to "Question #{i}", exam_question_path(params[:id], i ) %>
 					</td>
 					<td> 
-						<%= @marked[i - 1] %>
+						<%=  @marked[i - 1] == 'Yes' ? 'Yes' : '' %>
 					</td>		
 					<td>
 						<% if @user_answers[i-1].empty? %>
