@@ -1,20 +1,45 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <body class='homepage'>  
 
      <%= render 'layouts/header' %>
  
 <div class="center">
-<h1 id="logo">ProActuary</h1>
+	<h1 id="logo">ProActuary</h1>
 	<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
 </div>
-<div id='image'>
+<span>
 	<%= image_tag "screencapture.png",:class => "style_image" %>
+</span>
+
+<div class='about'>
+	<span class='about-info'> Exam P/1 <span><br><br>
+	<span class='about-info'> SOA 153 CBT format <span><br><br>
+	<span class='about-info'> FM Questions coming soon! <span><br>	
+</div><br><br>
+<div class="jcarousel">
+    <ul>
+        <li><%= image_tag "screencapture.png",:id => "style_image1" %></li>
+        <li><%= image_tag "review.png",:id => "style_image2" %></li>
+    </ul>
+</div>
 
 </div>
-<div >
-	<h1 class='about-info'> Prepare for you CBT Exam</h1>
-		
-</div>
+
 
 <%= render 'staticpages/footer' %>
  
 </body>  
+
+
+<script type="text/javascript" src='assets/jquery.jcarousel.min.js'>
+$(function() {
+    $('.jcarousel').jcarousel({
+    	'list': '.jcarousel-list'
+    	 return this.element().children().eq(0);
+        // Configuration goes here
+    });
+});
+</script>
+
+
+
