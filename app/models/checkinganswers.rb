@@ -19,14 +19,14 @@ include Mongoid::Document
 	# 	i += 1
 	# end
 
- 	i = 0
-	while( i < Exam.find('5227bfdfe0d1cd12ca00003d').user_answer.length  )
-			answer = Exam.find('5227bfdfe0d1cd12ca00003d').user_answer
-			puts Exam.find('5227bfdfe0d1cd12ca00003d').test_bank_questions[i].answer_choices.find(answer[i])
-			puts Exam.find('5227bfdfe0d1cd12ca00003d').test_bank_questions[i].answer_choices.find(answer[i]).correct_choice
-		i += 1
+ # 	i = 0
+	# while( i < Exam.find('5227bfdfe0d1cd12ca00003d').user_answer.length  )
+	# 		answer = Exam.find('5227bfdfe0d1cd12ca00003d').user_answer
+	# 		puts Exam.find('5227bfdfe0d1cd12ca00003d').test_bank_questions[i].answer_choices.find(answer[i])
+	# 		puts Exam.find('5227bfdfe0d1cd12ca00003d').test_bank_questions[i].answer_choices.find(answer[i]).correct_choice
+	# 	i += 1
 		
-	end
+	# end
 	
 
 end
