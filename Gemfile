@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem 'newrelic_rpm'
+
+gem 'rails_12factor', group: :production
+
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
 gem 'bson'
