@@ -194,8 +194,8 @@ table tr:hover td {
   background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);  
 }
 
-  overflow-y: auto;
-  tbody { height: auto; 
+   
+  tbody { 
+    height: auto; 
 
   }
-}
