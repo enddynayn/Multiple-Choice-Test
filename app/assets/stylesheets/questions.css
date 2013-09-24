@@ -203,5 +203,6 @@ tbody {
 }
 #choices{
   margin-left: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  padding-bottom: 60px;
 }
