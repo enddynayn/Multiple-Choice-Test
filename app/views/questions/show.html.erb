@@ -3,7 +3,7 @@
 <div id='question'>
 <img src=<%= @exam_question_url %> style='width:45%;' alt="some_text">
 
-<div ='choices'> 
+<div id='choices'><br><br>
 
   <%= form_tag({controller: 'questions', action: 'update'}, method: 'put', id:'myform') do %>
 

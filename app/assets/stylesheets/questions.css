@@ -194,8 +194,13 @@ table tr:hover td {
   background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);  
 }
 
-   
-  tbody { 
-    height: auto; 
+tbody { 
+  height: auto; 
+}
 
-  }
+#question{
+  margin-left: 10px;
+}
+#choices{
+  margin-left: 10px;
+}
