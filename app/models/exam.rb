@@ -37,22 +37,22 @@ class Exam
 
   def correct_answers
     #make an array with all the correct answers for the exam
-  #   self.correct_answers = []
-  #   questions_id = self.test_bank_question_ids
-  #   questions_id.each do |question_id|
-  #     answer_choices = TestBankQuestion.find(question_id).answer_choices
-  #     answer_choices.each do |choice|
-  #       if choice.correct_choice == true
-  #         self.correct_answers << choice._id
-  #       end
-  #     end
-  #   end
+    # self.correct_answers = []
+    # questions_id = self.test_bank_question_ids
+    # questions_id.each do |question_id|
+    #   answer_choices = TestBankQuestion.find(question_id).answer_choices
+    #   answer_choices.each do |choice|
+    #     if choice.correct_choice == true
+    #       self.correct_answers << choice._id
+    #     end
+    #   end
+    # end
 
 
 
    
 
-  # end
+  end
   
 
 
