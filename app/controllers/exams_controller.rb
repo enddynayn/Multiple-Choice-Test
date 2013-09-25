@@ -18,11 +18,12 @@ class ExamsController < ApplicationController
   end
   def destroy
     @exam = Exam.find(params[:id])
-
     @exam.destroy
-    respond_to do |format|
-    format.html { redirect_to user_path(current_user) }
-    format.js
+      respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js
+    end
   end
-  end
+
+  
 end

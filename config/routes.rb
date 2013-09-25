@@ -7,6 +7,7 @@ Project3::Application.routes.draw do
 
   post "questions/mark" => 'questions#mark'
   post "questions/unmark" => 'questions#unmark'
+  post "questions/end_exam" => 'questions#end_exam'
 
 resources :users
 resources :sessions, only: [:new, :create, :destroy]
