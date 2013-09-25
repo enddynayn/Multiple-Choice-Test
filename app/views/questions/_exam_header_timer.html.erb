@@ -15,7 +15,7 @@
 
 <script type='text/javascript'>
 
-  var count= <%= @start_time - Time.now %>;
+  var count= <%= @end_time - Time.now %>;
   var counter=setInterval(timer, 1000);
 
   function timer()

@@ -8,13 +8,13 @@ class QuestionsController < ApplicationController
     puts_money
     @questions = current_exam.test_bank_question_ids
     @user_answers = current_exam.user_answer  
-    @start_time = current_exam.timer
+    @end_time = current_exam.timer
   end
 
   def show
     current_exam = Exam.find(params[:exam_id])
     @marked = current_exam.marked
-    @start_time = current_exam.timer
+    @end_time = current_exam.timer
     @user_answer_choice = current_exam.user_answer[params[:id].to_i - 1]
     
     if  params[:id].to_i.between?(1, 5)
