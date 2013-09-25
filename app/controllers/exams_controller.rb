@@ -25,5 +25,10 @@ class ExamsController < ApplicationController
     end
   end
 
-  
+  def complete_exam
+    exam = Exam.find(params[:format])
+    exam.complete = true
+    exam.save
+    redirect_to exam_path(params[:format])
+  end
 end

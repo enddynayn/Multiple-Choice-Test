@@ -5,12 +5,15 @@ class Exam
   before_create :empty_array
   before_create :mark_array
   before_create :start_time
+  before_create :end_time
+  after_create  :correct_answers
 
   field :user_answer, type: Array, default: []
   field :marked, type: Array, default: []
   field :end_time, type: Array, default: []
   field :start_time,  type: Array, default: []
   field :complete, type: Boolean, default: false
+  field :correct_answers, type: Array, default: []
 
   belongs_to :user
   has_and_belongs_to_many :test_bank_questions
@@ -31,16 +34,27 @@ class Exam
   def mark_array
     self.marked = Array.new(5,'No')
   end
+
+  def correct_answers
+    #make an array with all the correct answers for the exam
+  #   self.correct_answers = []
+  #   questions_id = self.test_bank_question_ids
+  #   questions_id.each do |question_id|
+  #     answer_choices = TestBankQuestion.find(question_id).answer_choices
+  #     answer_choices.each do |choice|
+  #       if choice.correct_choice == true
+  #         self.correct_answers << choice._id
+  #       end
+  #     end
+  #   end
+
+
+
+   
+
+  # end
   
-  def grade_exam
-    # i = 1
-    # while (i < self.user_answers.length ) 
-    #   if @user_answers[i-1].empty?
-    #   elsif @test_bank_questions[i - 1].answer_choices.find(@user_answers[i -1]).correct_choice == true 
-    #   else 
-              
-    #   end
-  end
+
 
 end
 

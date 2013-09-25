@@ -3,11 +3,12 @@ class QuestionsController < ApplicationController
   def index
     current_exam = Exam.find(params[:exam_id])
     @marked = current_exam.marked
-    puts_money
-    puts @marked
-    puts_money
+   
     @questions = current_exam.test_bank_question_ids
-    @user_answers = current_exam.user_answer  
+    @user_answers = current_exam.user_answer 
+    puts_money
+    puts @end_time 
+    puts_money
     @end_time = current_exam.end_time
   end
 
@@ -15,6 +16,9 @@ class QuestionsController < ApplicationController
     current_exam = Exam.find(params[:exam_id])
     @marked = current_exam.marked
     @end_time = current_exam.end_time
+    puts_money
+    @end_time
+    puts_money
     @user_answer_choice = current_exam.user_answer[params[:id].to_i - 1]
     
     if  params[:id].to_i.between?(1, 5)
@@ -74,10 +78,5 @@ class QuestionsController < ApplicationController
     render text: "Successful"
   end
 
-  def end_exam
-   exam = Exam.find(params[:format])
-    exam.complete = true
-    exam.save
-    redirect_to exam_path(params[:format])
-  end
+
 end

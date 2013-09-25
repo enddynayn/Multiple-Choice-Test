@@ -40,6 +40,6 @@
 <input class='direction-btn' id='next-btn'  type='submit' name='submit' value='Review Marked' form='mark-form' >
 
 
-<%= button_to 'End Exam', questions_end_exam_path(params[:exam_id]), :method => "post", :class =>'direction-btn', :id =>'next-btn', :style=> 'margin-left: 615px'  %>
+<%= button_to 'End Exam', exams_complete_exam_path(params[:exam_id]), :method => "post", :class =>'direction-btn', :id =>'next-btn', :style=> 'margin-left: 615px'  %>
 
 
