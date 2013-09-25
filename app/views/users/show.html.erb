@@ -11,15 +11,37 @@
 		
 	</div><br><br><br><br>
 	
-	<ul>		
+	<ul>	
+
 		<% @exams.each do |exam| %>
-		<div id="banner">
+		<div class="banner<%=exam.id%>">
 		<li>
-			<%= button_to 'Exam ', exam_path( exam.id), :method => "get", :id=>'banner' %>
+			<%= button_to 'Exam ', exam_path( exam.id), :method => "get", :class => "#{exam.id}" %> <%= link_to 'Delete', exam_path(exam.id),:remote =>'true', method: 'delete', data: { confirm: 'Are you sure?' }, :class => "#{exam.id}" %>
+
 		<li>
 		</div><br><br>
+
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+				$('.<%=exam.id%>').click(function(){
+					
+					  $('.<%=exam.id%>').remove();
+					  $('.<%=exam.id%>').remove();
+					   $('.<%=exam.id%>').remove();
+					  
+				});
+			});
+
+
+  		</script>
 			<% end  %>
 	<ul>
 
 		
-	
+
+
+
+
+
+

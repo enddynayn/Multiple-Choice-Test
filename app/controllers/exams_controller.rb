@@ -16,4 +16,13 @@ class ExamsController < ApplicationController
      @marked = current_exam.marked
   	 @questions = current_exam.test_bank_question_ids
   end
+  def destroy
+    @exam = Exam.find(params[:id])
+
+    @exam.destroy
+    respond_to do |format|
+    format.html { redirect_to user_path(current_user) }
+    format.js
+  end
+  end
 end
