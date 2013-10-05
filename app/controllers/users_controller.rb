@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @exams = current_user.exams
+    puts_money
+    puts @exams
+
   end
 
   def new

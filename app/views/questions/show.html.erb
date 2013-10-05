@@ -33,34 +33,34 @@
 
   $(document).ready(function() {
 
-      
-    $('#mark-btn').click(function(){
-      $.ajax({
-        type: 'PUT',
-        url:'<%= mark_exam_question_path(params[:exam_id], params[:id])%>'
-      }).done(function(msg){
-          
-          $("#mark-btn").val("Marked");
-          $("#mark-btn").attr("id",'unmark-btn' )
-          return false        
-        });
+    $(document).on('click', '#mark-btn', function () {
+        $.ajax({
+            type: 'PUT',
+            url: '<%= mark_exam_question_path(params[:exam_id], params[:id])%>'
+        }).done(function (msg) {
 
-
-
-    $("#unmark-btn").click(function(){
-      console.log("unmakr called");
-      $.ajax({
-        type: 'PUT',
-        url:'<%= unmark_exam_question_path(params[:exam_id], params[:id])%>'
-      }).done(function(msg){
-        
-         console.log("called with unmarkbtn");
-         $("#unmark-btn").val("Mark");
-         $("#unmark-btn").attr("id",'mark-btn' ); 
+            $("#mark-btn").val("Marked");
+            $("#mark-btn").attr("id", 'unmark-btn')
             return false
         });
-      });
-   });
+
+    });
+
+
+
+    $(document).on('click', "#unmark-btn", function (){
+        $.ajax({
+            type: 'PUT',
+            url: '<%= unmark_exam_question_path(params[:exam_id], params[:id])%>'
+        }).done(function (msg) {
+
+            $("#unmark-btn").val("Mark");
+            $("#unmark-btn").attr("id", 'mark-btn');
+            return false
+        });
+    });
+
+  
  
    });
 

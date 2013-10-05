@@ -2,6 +2,7 @@ class ExamsController < ApplicationController
   
   def create
     exam = current_user.exams.create!(test_bank_questions: TestBankQuestion.all.sample(5))
+    exam.answers
     redirect_to exam_question_path(exam, '1')
   end
 

@@ -3,10 +3,10 @@ class Correctanswers
   
   def Correctanswers.answers     
     correct_answers_ids = []
-    questions_id = Exam.find("52433b2ee0d1cdabeb00002c").test_bank_question_ids
-      questions_id.each do |question_id|
-        question_choices = TestBankQuestion.find(question_id.to_s).answer_choices
-          question_choices.each do |choice|
+    exam_questions = Exam.find("52436445e0d1cd1386000035").test_bank_questions
+      exam_questions.each do |question|
+        answer_choices = question.answer_choices
+          answer_choices.each do |choice|
             if choice.correct_choice == true
               correct_answers_ids << choice.id.to_s
             end

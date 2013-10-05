@@ -4,15 +4,15 @@ class Exam
   before_create :end_time	
   before_create :empty_array
   before_create :mark_array
-  before_create :start_time
-  before_save  :answers
+  before_create :begin_time
+  #before_create :answers
 
   field :user_answer, type: Array, default: []
   field :marked, type: Array, default: []
   field :timer, type: Array, default: []
   field :start_time,  type: Array, default: []
   field :complete, type: Boolean, default: false
-  field :correct_answers, type: Array, default: []
+  field :correct_answers_ids, type: Array, default: []
 
   belongs_to :user
   has_and_belongs_to_many :test_bank_questions
@@ -21,7 +21,7 @@ class Exam
   	self.timer = Time.now + 60 * 60 * 3
   end
 
-  def start_time
+  def begin_time
     self.start_time = Time.now
   end
 
@@ -34,27 +34,37 @@ class Exam
     self.marked = Array.new(5,'No')
   end
 
-  def answers
     #make an array with all the correct answers for the exam
-    self.correct_answers 
+    
+  #   def answers     
+  #   self.correct_answers 
+  #   exam_questions = self.test_bank_questions
+  #     exam_questions.each do |question|
+  #       answer_choices = question.answer_choices
+  #         answer_choices.each do |choice|
+  #           if choice.correct_choice == true
+  #             correct_answers << choice.id.to_s
+  #           end
+  #         end
+  #     end
 
-    questions_id = self.test_bank_question_ids
-    puts questions_id
-    puts questions_id.first.class
-    questions_id.each do |question_id|
-      answer_choices = TestBankQuestion.find(question_id.to_s).answer_choices
-      
-      puts answer_choices  
-    puts "%" *1000    
-      answer_choices.each do |answer_choice|
-        if answer_choice.correct_choice == true
-          self.correct_answers << answer_choice.id.to_s
-        end
+  #   return correct_answers
+  # end  
+
+   def answers     
+    exam_questions = self.test_bank_questions
+      exam_questions.each do |question|
+        answer_choices = question.answer_choices
+          answer_choices.each do |choice|
+            if choice.correct_choice == true
+              self.correct_answers_ids << choice.id.to_s
+            end
+          end
       end
-    end
 
+    return correct_answers_ids
+  end  
 
-  end
   
 
 
