@@ -67,7 +67,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.24)
     minitest (4.7.5)
-    moped (1.5.1)
+    moped (1.5.3)
     multi_json (1.7.9)
     newrelic_rpm (3.6.7.152)
     origin (1.1.0)
